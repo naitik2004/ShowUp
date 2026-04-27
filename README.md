@@ -1,59 +1,66 @@
 # ShowUp 🏅
 
-**Find your game. Find your people.**
+**Show up. Play.**
 
-**Startup Blueprint & AI Build Specification**
+**Website Startup Blueprint & AI Build Specification**
 
-- **Founder:** 4th Sem B.Tech CS+AI
-- **Team Size:** 2 Members + AI Stack
-- **Market:** India — Urban Youth Sports
-- **Version:** v1.0 — MVP Spec
+- **Type:** Web-First Product
+- **Team:** 2 People + AI
+- **Market:** India Urban Sports
 
-## 1. Product Specification (MVP v1.0)
+## 1. Why Website First?
+- **No App Store approval:** Ship in hours, not weeks. No Apple/Google gatekeeping.
+- **Works on every device:** Users open a link — no install friction.
+- **Faster to iterate:** Change a feature, refresh the page. No app version updates.
+- **Cheaper to build:** One codebase for desktop + mobile browser.
+- **SEO discoverability:** Free organic traffic over time.
 
-**MVP Scope:**
-1. Create/Join a game group on a map
-2. In-app chat with privacy controls
-3. Player ratings per sport
+## 2. Website Structure
 
-### Core Features
-- **Game Group System:** Select sport, set location pin, specify max players, skill level, date/time, and auto-expiry.
-- **Map & Discovery:** Home screen map showing active games, filter by sport/skill/distance.
-- **Rating System:** Post-game ratings for Sportsmanship, Reliability, and Skill.
-- **User Profile & Friends:** First name, city, ratings, groups hosted/played. Mutual friends unlock private chat.
-- **In-App Chat:** Group chat for accepted members (auto-deletes with group). Private chat for friends.
+### Part A — Landing Page
+Goal: get users to sign up or join the waitlist in under 10 seconds.
+- Hero Section (Find a Game Near Me)
+- How It Works
+- Live Map Preview
+- Features & Social Proof
+- Waitlist / Sign Up Form
 
-*(Future v1.5: Turf/Court booking and split payments)*
+### Part B — Web App
+The actual product running in the browser.
+- `/login` — Phone OTP login
+- `/map` — Full-page map with game pins
+- `/groups` — List of your groups
+- `/groups/create` — Multi-step group creation
+- `/groups/[id]` — Group detail + real-time chat
+- `/profile/[id]` — User profiles and ratings
+- `/friends` — Friends list & private DMs
 
-## 2. Technical Architecture (Website First)
+## 3. Tech Stack
 
-**Frontend — Web App:**
-- Framework: Next.js or Vite (React)
-- Maps: Google Maps / Mapbox
+**Frontend:**
+- Framework: Next.js 14 (App Router)
+- Styling: Tailwind CSS
+- Map Component: React-Leaflet or Google Maps JS
 - State Management: Zustand
-- *Note: Mobile app development is planned for a later phase.*
+- UI Components: shadcn/ui
+- Icons & Animations: Lucide React, Framer Motion
 
-**Backend — Services:**
-- Primary Database: Supabase (PostgreSQL)
-- Authentication: Supabase Auth (phone OTP + social login)
-- Real-time Chat: Supabase Realtime / Stream Chat SDK
+**Backend & Services:**
+- Database & Auth: Supabase (PostgreSQL + PostGIS, Phone OTP)
+- Real-time: Supabase Realtime (Live chat & map)
 - File Storage: Supabase Storage
 - Payments (v1.5): Razorpay
-- Maps/Geo Queries: PostGIS (built into Supabase)
+- Hosting: Vercel
 
-## 3. Project Structure
+## 4. Project Structure
 
 ```
 showup/
- ├── apps/
- │   └── web/              # React Web app
- ├── supabase/             # Supabase Edge Functions & Migrations
- └── docs/                 # PRDs, wireframes, documentation
+ ├── app/                  # Next.js App Router (marketing, auth, app, api)
+ ├── components/           # UI and Feature Components (map, groups, chat, etc.)
+ ├── lib/                  # Supabase clients, hooks, store, utils
+ ├── types/                # TypeScript interfaces
+ ├── supabase/             # Edge Functions & Migrations
+ ├── public/               # Static assets
+ └── docs/                 # Documentation
 ```
-
-## 4. Next Steps
-
-1. Bootstrap Web App in `apps/web`
-2. Generate and apply Supabase migrations
-3. Build the Map Screen for Web
-4. Test locally and deploy MVP
