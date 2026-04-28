@@ -7,9 +7,17 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+      {/* Left side subtle floating accent */}
+      <div className="absolute left-[3%] top-1/3 w-2 h-2 bg-primary/40 rounded-full hidden lg:block" />
+      <div className="absolute left-[5%] bottom-1/3 w-1.5 h-1.5 bg-white/20 rounded-full hidden lg:block" />
+
+      {/* Right side subtle floating accent */}
+      <div className="absolute right-[4%] top-1/4 w-2 h-2 bg-white/20 rounded-full hidden lg:block" />
+      <div className="absolute right-[2%] bottom-1/4 w-1.5 h-1.5 bg-primary/30 rounded-full hidden lg:block" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* Left: Content */}
