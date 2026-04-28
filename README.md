@@ -1,66 +1,36 @@
-# ShowUp 🏅
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**Show up. Play.**
+## Getting Started
 
-**Website Startup Blueprint & AI Build Specification**
+First, run the development server:
 
-- **Type:** Web-First Product
-- **Team:** 2 People + AI
-- **Market:** India Urban Sports
-
-## 1. Why Website First?
-- **No App Store approval:** Ship in hours, not weeks. No Apple/Google gatekeeping.
-- **Works on every device:** Users open a link — no install friction.
-- **Faster to iterate:** Change a feature, refresh the page. No app version updates.
-- **Cheaper to build:** One codebase for desktop + mobile browser.
-- **SEO discoverability:** Free organic traffic over time.
-
-## 2. Website Structure
-
-### Part A — Landing Page
-Goal: get users to sign up or join the waitlist in under 10 seconds.
-- Hero Section (Find a Game Near Me)
-- How It Works
-- Live Map Preview
-- Features & Social Proof
-- Waitlist / Sign Up Form
-
-### Part B — Web App
-The actual product running in the browser.
-- `/login` — Phone OTP login
-- `/map` — Full-page map with game pins
-- `/groups` — List of your groups
-- `/groups/create` — Multi-step group creation
-- `/groups/[id]` — Group detail + real-time chat
-- `/profile/[id]` — User profiles and ratings
-- `/friends` — Friends list & private DMs
-
-## 3. Tech Stack
-
-**Frontend:**
-- Framework: Next.js 14 (App Router)
-- Styling: Tailwind CSS
-- Map Component: React-Leaflet or Google Maps JS
-- State Management: Zustand
-- UI Components: shadcn/ui
-- Icons & Animations: Lucide React, Framer Motion
-
-**Backend & Services:**
-- Database & Auth: Supabase (PostgreSQL + PostGIS, Phone OTP)
-- Real-time: Supabase Realtime (Live chat & map)
-- File Storage: Supabase Storage
-- Payments (v1.5): Razorpay
-- Hosting: Vercel
-
-## 4. Project Structure
-
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
-showup/
- ├── app/                  # Next.js App Router (marketing, auth, app, api)
- ├── components/           # UI and Feature Components (map, groups, chat, etc.)
- ├── lib/                  # Supabase clients, hooks, store, utils
- ├── types/                # TypeScript interfaces
- ├── supabase/             # Edge Functions & Migrations
- ├── public/               # Static assets
- └── docs/                 # Documentation
-```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
