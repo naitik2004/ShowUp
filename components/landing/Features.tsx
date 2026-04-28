@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Map, Users, ShieldCheck, Star } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { StaggerContainer, StaggerItem } from "./AnimatedSection";
+import ScrollRevealText from "./ScrollRevealText";
 
 const features = [
   {
@@ -35,24 +36,21 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-32 md:py-40 px-6 bg-black relative overflow-hidden">
+    <section id="features" className="bg-black relative">
       {/* Side decorative gradient blobs */}
       <div className="absolute -left-[250px] top-1/3 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute -right-[250px] bottom-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative">
-        <AnimatedSection animation="slideUp" duration={0.8}>
-          <div className="mb-20 md:mb-24">
-            <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-6 block">
-              The Platform
-            </span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-none max-w-3xl">
-              BUILT FOR PERFORMANCE. <br />
-              <span className="text-white/20">DEFINED BY COMMUNITY.</span>
-            </h2>
-          </div>
-        </AnimatedSection>
+      <ScrollRevealText 
+        subtitle="The Platform"
+        lines={[
+          "BUILT FOR PERFORMANCE.",
+          "DEFINED BY COMMUNITY."
+        ]}
+        className="text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.85] uppercase"
+      />
 
+      <div className="max-w-7xl mx-auto px-6 py-32 md:py-40 relative">
         <StaggerContainer
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
           staggerDelay={0.12}
