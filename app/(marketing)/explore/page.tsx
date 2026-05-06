@@ -15,20 +15,19 @@ export default function ExplorePage() {
       <div className="relative z-10">
         <Navbar />
         
-        {/* Simple spacing for navbar */}
-        <div className="h-32 md:h-40" />
+        {/* Reduced spacing for navbar */}
+        <div className="h-20 md:h-24" />
         
-        <div className="max-w-7xl mx-auto px-6 mb-12">
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full mb-6">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Discovery Mode</span>
+        <div className="max-w-7xl mx-auto px-6 mb-6">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-4">
+            <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-primary">Discovery Mode</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter italic uppercase leading-none mb-6">
-            EXPLORE <br />
-            <span className="text-primary">SPORTS.</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter italic uppercase leading-none mb-4">
+            EXPLORE <span className="text-primary">SPORTS.</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/40 font-bold max-w-2xl leading-relaxed">
-            Discover active matches, join local squads, and explore the most popular sports communities in India.
+          <p className="text-sm md:text-base text-white/40 font-bold max-w-xl leading-relaxed">
+            Discover matches and join local squads across India.
           </p>
         </div>
         

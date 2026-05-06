@@ -5,15 +5,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const SPORTS_DATA = [
-  { id: "cricket", name: "Cricket", icon: "🏏", type: "Team", players: "11v11 / 6v6", level: "All Levels", color: "from-orange-500 to-red-600" },
-  { id: "football", name: "Football", icon: "⚽", type: "Team", players: "5v5 / 7v7 / 11v11", level: "Intermediate+", color: "from-green-500 to-emerald-700" },
-  { id: "basketball", name: "Basketball", icon: "🏀", type: "Team", players: "3v3 / 5v5", level: "Competitive", color: "from-orange-400 to-orange-600" },
-  { id: "badminton", name: "Badminton", icon: "🏸", type: "Racket", players: "1v1 / 2v2", level: "Beginner Friendly", color: "from-blue-400 to-blue-600" },
-  { id: "volleyball", name: "Volleyball", icon: "🏐", type: "Team", players: "6v6", level: "All Levels", color: "from-yellow-400 to-orange-500" },
-  { id: "pickleball", name: "Pickleball", icon: "🏓", type: "Racket", players: "1v1 / 2v2", level: "Casual", color: "from-purple-500 to-pink-600" },
-  { id: "tennis", name: "Lawn Tennis", icon: "🎾", type: "Racket", players: "1v1 / 2v2", level: "Advanced", color: "from-lime-400 to-green-600" },
-  { id: "table-tennis", name: "Table Tennis", icon: "🏓", type: "Racket", players: "1v1 / 2v2", level: "Intermediate", color: "from-red-400 to-red-600" },
-  { id: "swimming", name: "Swimming", icon: "🏊", type: "Individual/Club", players: "Group Laps", level: "All Levels", color: "from-cyan-400 to-blue-500" },
+  // MOST POPULAR (Top Tier)
+  { id: "cricket", name: "Cricket", icon: "🏏", type: "Large Field", players: "11v11", level: "All Levels", color: "from-orange-500 to-red-600" },
+  { id: "football", name: "Football", icon: "⚽", type: "Large Field", players: "11v11", level: "All Levels", color: "from-green-500 to-emerald-700" },
+  { id: "badminton", name: "Badminton", icon: "🏸", type: "Court Sports", players: "1v1 / 2v2", level: "Beginner Friendly", color: "from-blue-400 to-blue-600" },
+  { id: "basketball", name: "Basketball", icon: "🏀", type: "Court Sports", players: "5v5", level: "Competitive", color: "from-orange-400 to-orange-600" },
+  { id: "kabaddi", name: "Kabaddi", icon: "🤼", type: "Combat & Mat", players: "7v7", level: "Intermediate+", color: "from-red-600 to-red-800" },
+  
+  // High Interest
+  { id: "volleyball", name: "Volleyball", icon: "🏐", type: "Court Sports", players: "6v6", level: "All Levels", color: "from-yellow-400 to-orange-500" },
+  { id: "field-hockey", name: "Field Hockey", icon: "🏑", type: "Large Field", players: "11v11", level: "Intermediate+", color: "from-blue-500 to-blue-700" },
+  { id: "tennis", name: "Lawn Tennis", icon: "🎾", type: "Court Sports", players: "1v1 / 2v2", level: "Advanced", color: "from-lime-400 to-green-600" },
+  { id: "table-tennis", name: "Table Tennis", icon: "🏓", type: "Court Sports", players: "1v1 / 2v2", level: "Intermediate", color: "from-red-400 to-red-600" },
+  
+  // Growing & Specialized
+  { id: "squash", name: "Squash", icon: "🎾", type: "Court Sports", players: "1v1 / 2v2", level: "Intermediate+", color: "from-indigo-400 to-indigo-600" },
+  { id: "kho-kho", name: "Kho-Kho", icon: "🏃", type: "Large Field", players: "9v9", level: "Beginner+", color: "from-yellow-500 to-orange-600" },
+  { id: "wrestling", name: "Wrestling", icon: "🤼‍♂️", type: "Combat & Mat", players: "1v1", level: "Advanced", color: "from-amber-600 to-amber-800" },
+  { id: "boxing", name: "Boxing", icon: "🥊", type: "Combat & Mat", players: "1v1", level: "Pro", color: "from-red-500 to-red-700" },
+  { id: "swimming", name: "Swimming", icon: "🏊", type: "Indoor & Specialized", players: "Individual / Relay", level: "All Levels", color: "from-cyan-400 to-blue-500" },
+
+  // Specialized & Traditional
+  { id: "martial-arts", name: "Martial Arts", icon: "🥋", type: "Combat & Mat", players: "1v1", level: "All Levels", color: "from-neutral-500 to-neutral-700" },
+  { id: "snooker", name: "Billiards / Snooker", icon: "🎱", type: "Indoor & Specialized", players: "1v1 / 2v2", level: "Casual", color: "from-green-600 to-green-900" },
+  { id: "chess", name: "Chess", icon: "♟️", type: "Indoor & Specialized", players: "1v1", level: "Strategic", color: "from-gray-400 to-gray-600" },
+  { id: "carrom", name: "Carrom", icon: "⚪", type: "Indoor & Specialized", players: "1v1 / 2v2", level: "Casual", color: "from-amber-400 to-amber-600" },
+  { id: "shooting", name: "Shooting", icon: "🎯", type: "Indoor & Specialized", players: "Individual", level: "Advanced", color: "from-blue-600 to-blue-800" },
+  { id: "athletics", name: "Athletics", icon: "🏃‍♂️", type: "Water & Track", players: "Individual / Team", level: "All Levels", color: "from-rose-500 to-rose-700" },
+  { id: "boat-racing", name: "Boat Racing", icon: "🛶", type: "Water & Track", players: "Large Team", level: "Pro", color: "from-sky-500 to-sky-700" },
+  { id: "polo", name: "Polo", icon: "🐎", type: "Large Field", players: "4v4", level: "Pro", color: "from-stone-500 to-stone-700" },
+  { id: "motorsport", name: "Motorsport", icon: "🏎️", type: "Water & Track", players: "Individual", level: "Expert", color: "from-zinc-500 to-zinc-800" },
 ];
 
 export default function SportsDiscovery() {
@@ -27,7 +48,7 @@ export default function SportsDiscovery() {
   });
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-black" id="explore">
+    <section className="pt-4 pb-20 px-6 relative overflow-hidden bg-black" id="explore">
       {/* Background accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.05),transparent_70%)] pointer-events-none" />
       
@@ -35,11 +56,11 @@ export default function SportsDiscovery() {
         {/* Filter Bar */}
         <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-6 bg-white/[0.03] border border-white/10 p-4 rounded-3xl backdrop-blur-xl">
           <div className="flex flex-wrap gap-2">
-            {["All", "Team", "Racket", "Individual/Club"].map((f) => (
+            {["All", "Large Field", "Court Sports", "Combat & Mat", "Indoor & Specialized", "Water & Track"].map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all ${
+                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
                   filter === f 
                     ? "bg-primary text-white shadow-lg shadow-primary/30" 
                     : "bg-white/5 text-white/40 hover:bg-white/10"
