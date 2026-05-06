@@ -20,7 +20,7 @@ export default function Navbar() {
           {["Find Games", "Venues", "Waitlist"].map((item) => (
             <Link 
               key={item} 
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              href={item === "Find Games" ? "/explore" : `#${item.toLowerCase().replace(" ", "-")}`}
               className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
             >
               {item}

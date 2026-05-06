@@ -9,6 +9,7 @@ import BackgroundEffects from "@/components/landing/BackgroundEffects";
 import SportyCharacters from "@/components/landing/SportyCharacters";
 import AnimatedSection from "@/components/landing/AnimatedSection";
 import { useCountUp } from "@/lib/hooks/useCountUp";
+import Link from "next/link";
 
 function StatCounter({
   end,
@@ -88,77 +89,99 @@ export default function LandingPage() {
 
         <Waitlist />
 
-        <footer className="py-24 md:py-32 border-t border-white/5 bg-black relative">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-primary rounded-full shadow-lg shadow-primary/30" />
-                <span className="text-2xl font-black tracking-tighter text-white uppercase italic">
-                  ShowUp
-                </span>
+        <footer className="pt-20 pb-16 bg-black relative overflow-hidden">
+          {/* Final CTA / Bridge Section */}
+          <div className="max-w-7xl mx-auto px-6 mb-32">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="relative bg-white/[0.03] border border-white/10 rounded-[3rem] p-12 md:p-20 text-center overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] -translate-y-1/2 translate-x-1/2" />
+                <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none italic uppercase">
+                  READY TO <span className="text-primary">SHOWUP?</span>
+                </h2>
+                <p className="text-lg md:text-xl text-white/40 font-bold mb-12 max-w-2xl mx-auto leading-relaxed">
+                  Join thousands of players across India who have already upgraded their sporting life. No more coordination nightmares.
+                </p>
+                <div className="flex flex-wrap justify-center gap-6">
+                  <Link href="/explore">
+                    <button className="px-10 py-5 bg-primary text-white font-black uppercase tracking-widest text-sm rounded-full shadow-2xl shadow-primary/40 hover:scale-105 transition-all">
+                      Find a Game Now
+                    </button>
+                  </Link>
+                  <button className="px-10 py-5 bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-sm rounded-full hover:bg-white/10 transition-all">
+                    Register Venue
+                  </button>
+                </div>
               </div>
-              <p className="text-white/30 font-bold max-w-xs leading-relaxed">
-                The premier social layer for recreational sports in India.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-black uppercase tracking-[0.3em] text-[10px] mb-8">
-                Platform
-              </h4>
-              <ul className="space-y-4 text-xs font-bold text-white/30 tracking-widest">
-                <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    Find Games
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    For Venues
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    Community
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-black uppercase tracking-[0.3em] text-[10px] mb-8">
-                Legal
-              </h4>
-              <ul className="space-y-4 text-xs font-bold text-white/30 tracking-widest">
-                <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    Cookie Policy
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
-          <div className="max-w-7xl mx-auto px-6 mt-20 md:mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/20">
-              © 2026 ShowUp Technologies. All rights reserved.
-            </p>
-            <div className="flex gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-white/20">
-              <a href="#" className="hover:text-white transition-colors">
-                Instagram
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Twitter
-              </a>
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 border-b border-white/5 pb-20">
+              <div className="md:col-span-5">
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="w-12 h-12 bg-primary rounded-2xl rotate-12 flex items-center justify-center shadow-xl shadow-primary/30">
+                    <div className="w-5 h-5 border-2 border-white rounded-full" />
+                  </div>
+                  <span className="text-3xl font-black tracking-tighter text-white uppercase italic">
+                    ShowUp
+                  </span>
+                </div>
+                <p className="text-white/40 font-bold max-w-sm leading-relaxed text-lg mb-10">
+                  The premier social layer for recreational sports in India. Discover games, build your reputation, and connect with players nearby.
+                </p>
+                <div className="flex gap-6">
+                  {['Instagram', 'Twitter', 'LinkedIn'].map((social) => (
+                    <a key={social} href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/20 hover:text-primary hover:border-primary transition-all text-xs font-black uppercase tracking-widest">
+                      {social[0]}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="md:col-span-2 md:col-start-7">
+                <h4 className="text-white font-black uppercase tracking-[0.3em] text-[10px] mb-10 opacity-30">
+                  Platform
+                </h4>
+                <ul className="space-y-6 text-sm font-bold text-white/40 tracking-widest">
+                  <li><a href="#" className="hover:text-primary transition-all">Find Games</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">For Venues</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">Community</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">Waitlist</a></li>
+                </ul>
+              </div>
+
+              <div className="md:col-span-2">
+                <h4 className="text-white font-black uppercase tracking-[0.3em] text-[10px] mb-10 opacity-30">
+                  Company
+                </h4>
+                <ul className="space-y-6 text-sm font-bold text-white/40 tracking-widest">
+                  <li><a href="#" className="hover:text-primary transition-all">About Us</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">Careers</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">Contact</a></li>
+                </ul>
+              </div>
+
+              <div className="md:col-span-2">
+                <h4 className="text-white font-black uppercase tracking-[0.3em] text-[10px] mb-10 opacity-30">
+                  Legal
+                </h4>
+                <ul className="space-y-6 text-sm font-bold text-white/40 tracking-widest">
+                  <li><a href="#" className="hover:text-primary transition-all">Privacy</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">Terms</a></li>
+                  <li><a href="#" className="hover:text-primary transition-all">Cookies</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
+                © 2026 ShowUp Technologies. Built for the next billion players.
+              </p>
+              <div className="flex items-center gap-4 px-4 py-2 rounded-full bg-white/[0.02] border border-white/5">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[9px] font-bold uppercase tracking-widest text-white/40">Network Status: Optimal</span>
+              </div>
             </div>
           </div>
         </footer>

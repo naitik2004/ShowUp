@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight, Play, Trophy } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -60,9 +61,11 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="btn-primary flex items-center gap-2">
-              Find a Game <ArrowRight size={18} />
-            </button>
+            <Link href="/explore">
+              <button className="btn-primary flex items-center gap-2">
+                Find a Game <ArrowRight size={18} />
+              </button>
+            </Link>
             <button className="btn-secondary flex items-center gap-2">
               <Play size={16} fill="currentColor" /> Watch Demo
             </button>
@@ -145,9 +148,11 @@ export default function Hero() {
                 </div>
                 <div className="bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[10px] font-black text-primary tracking-tighter">JOIN REQUESTED</div>
               </div>
-              <button className="w-full py-5 bg-primary rounded-2xl text-[11px] font-black text-white uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(26,86,219,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
-                Join the Game
-              </button>
+              <Link href="/explore" className="block w-full">
+                <button className="w-full py-5 bg-primary rounded-2xl text-[11px] font-black text-white uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(26,86,219,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+                  Join the Game
+                </button>
+              </Link>
             </motion.div>
           </div>
 
